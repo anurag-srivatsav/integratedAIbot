@@ -157,7 +157,7 @@ Ask any questions about Anurag Srivatsav, and the bot will provide answers based
 st.sidebar.image('https://res.cloudinary.com/dvlgixtg8/image/upload/v1721021639/chatbot.png', use_column_width=True)
 
 # URL to redirect to
-url = 'https://anuragportfoli04.netlify.app/'  # Replace with your desired URL
+url = 'https://anuragsrivatsav.netlify.app/'  # Replace with your desired URL
 
 # Adding a button to redirect to another URL
 if st.sidebar.button('Back to Portfolio'):
