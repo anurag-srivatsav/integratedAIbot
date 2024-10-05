@@ -187,7 +187,56 @@ if 'chat_history' not in st.session_state:
 chat_session = model.start_chat(history=[])
 
 # Streamlit app UI
-st.title('Questions about me? Shoot—I\'m here with all the answers!') 
+
+st.title('Questions about me? Shoot—I\'m here with all the answers!')
+
+
+
+# Sidebar with description
+st.sidebar.header("About the App:")
+
+st.sidebar.write("""
+This is an interactive AI profile bot. \n
+Ask any questions about Anurag Srivatsav, and the bot will provide answers based on the preloaded knowledge base or generate responses using AI.
+""")
+
+st.sidebar.image('https://res.cloudinary.com/dvlgixtg8/image/upload/v1721021639/chatbot.png', use_column_width=True)
+
+# URL to redirect to
+url = 'https://anuragportfoli04.netlify.app/'  # Replace with your desired URL
+
+# Adding a button to redirect to another URL
+if st.sidebar.button('Back to Portfolio'):
+    st.sidebar.markdown(f'You are being redirected to: [{url}]({url})', unsafe_allow_html=True)
+    # Redirect using Streamlit's write function with HTML link and target="_blank"
+    st.sidebar.write(f'<meta http-equiv="refresh" content="0;URL={url}" target="_blank">', unsafe_allow_html=True)
+
+
+
+url = 'https://echoclone-ai.streamlit.app/'  # Replace with your desired URL
+
+st.markdown(
+    """
+    <style>
+    .styled-text {
+        font-size: 18px; /* Change font size */
+        color: skyblue; /* Change text color */
+        font-weight: bold; /* Make the text bold */
+        
+        margin-bottom: 20px; /* Add space below */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Use markdown to display the styled text in the sidebar
+st.sidebar.markdown('<p class="styled-text">Wanna explore my Unique Voice Assistant? Check it out now!</p>', unsafe_allow_html=True)
+# Adding a button to redirect to another URL
+if st.sidebar.button('EchoClone AI🎧'):
+    st.sidebar.markdown(f'You are being redirected to: [{url}]({url})', unsafe_allow_html=True)
+    # Redirect using Streamlit's write function with HTML link and target="_blank"
+    st.sidebar.write(f'<meta http-equiv="refresh" content="0;URL={url}" target="_blank">', unsafe_allow_html=True)
 user_name = st.text_input('Enter your name here to enhance your interaction before posing your query: 📝🧑‍💼', value="", key="user_name")
 
 if user_name:
