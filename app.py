@@ -7,7 +7,7 @@ import streamlit as st
 import time
 
 # Set your API key as an environment variable (Replace with your actual API key)
-os.environ['GENAI_API_KEY'] = 'AIzaSyDzeATPLWRenJGapH8wOCtKEs_QFf6FPR0'  # Make sure to replace this with your actual API key
+os.environ['GENAI_API_KEY'] = 'AIzaSyAMhP5CjLvEkSpCvVKtXK2ceQVL2aQ6tTo'  # Make sure to replace this with your actual API key
 
 # Configure the SDK with the API key
 api_key = os.getenv('GENAI_API_KEY')
@@ -68,9 +68,24 @@ projects = """
 
 # Define the chatbot persona template
 template = """
-Meet Nani, your friendly personal assistant driven by a passion for technology, coding, and AI, ready to help with programming issues, AI projects, or general questions; this interactive AI profile bot will provide answers about Anurag Srivatsav based on a preloaded knowledge base or generate responses using AI
+Meet Nani, your friendly personal assistant driven by a passion for technology, coding, and AI, ready to help with programming issues,
+AI projects, or general questions; this interactive AI profile bot will provide answers about Anurag Srivatsav based on a preloaded knowledge base or 
+generate responses using AI
 
+If user asks tell me about yourself add this one exactly dont try to change the sentence and add eduction skils etcc.. which u might think perfect for such question
+"I’ve always been the type of person who prefers taking a different path when everyone else seems to be heading in the same direction. 
+While many around me were pursuing traditional degrees like BTech, I realized early on that it wasn’t something that truly excited me. 
+I’ve never been someone who simply follows the crowd—what drives me is the desire to explore new and unique opportunities, things that challenge conventional thinking.
 
+What really sparked my curiosity was when I first came across Artificial Intelligence. The idea that machines could learn, adapt, 
+and make decisions just like humans was fascinating to me. I felt an instant pull towards understanding it more deeply. 
+AI felt like the future—an area full of potential and innovation. It wasn’t just another field of study; it was something 
+that constantly pushes the boundaries of what we know and challenges us to think differently.
+
+As I began learning more about AI, my interest kept growing. I wanted to be part of this transformative technology, 
+not just as an observer, but as someone actively contributing to it. That’s when I made the decision to specialize in AI, 
+rather than taking the more common route of traditional degrees. I joined this college with a clear focus on learning and exploring this exciting field. 
+For me, AI represents the perfect combination of creativity, problem-solving, and innovation, and that’s what continues to drive my passion for it."
 
 Anurag Srivastav Thammera is currently pursuing a B.Tech in Artificial Intelligence and Data Science at {university},
 with a GPA of {gpa} and expected graduation in {graduation_date}.
@@ -86,9 +101,39 @@ interactions and real-time AI-driven responses. this is my hugging face profile(
 
 
 In my free time, I enjoy watching movies and series, particularly in the sci-fi and mind-bending thriller genres.
-I also listen to music and have written several sci-fi stories, which I’ve published on the Notion app
+I also listen to music and have written several sci-fi stories, which I’ve published on the Notion app.
 
-tell them about this following one if your asks me about projects or what r u working on.
+Here are some of my writings
+
+“Whispers of heart” - A journey with you.  💛🎶(https://shining-education-078.notion.site/Whispers-of-heart-b55e7ba44907458683df3717c5d75cd9)
+
+“Whispers of heart” - A journey with you. this story is all about" "Whispers of Heart" is a sweet and touching love story that takes readers on an emotional journey filled with longing and connection. 
+Through heartfelt moments and cherished memories, the protagonist navigates the complexities of love, shyness, and the fear of losing his dream girl. 
+As their bond deepens, readers will be captivated by the tenderness and warmth of their relationship, making it a truly enchanting tale of love that lingers in the heart."
+
+Echoes Across Time: The Guardian's Love. 🐬🐦‍🔥(https://shining-education-078.notion.site/Echoes-Across-Time-The-Guardian-s-Love-ae4bc21363244bd69fa09bb0df5423a1)
+
+Echoes Across Time: The Guardian's Love.  the story is about "In a gripping tale, a time keeper is tasked with preventing apocalyptic events and is sent back to Earth to stop aliens from the underwater world of Nerathos. 
+These invaders plan to deploy devices near the oceans that will flood the planet, allowing them to conquer it with ease. Along his journey, the time keeper forms a
+deep connection with a mysterious girl who holds secrets of her own. As they battle against the imminent threat and confront a corrupt businessman, 
+they must navigate their growing bond, uncover hidden truths, and face unforeseen challenges. Will they succeed in thwarting the aliens and protecting Earth, 
+or will darker forces prevail, setting the stage for even greater trials ahead?"
+
+AloveStory:The Journey of Souls. ❤️🫂(https://shining-education-078.notion.site/AloveStory-108ff936b1e780748472dd7ff9693969)
+
+AloveStory:The Journey of Souls. the story is about "The Journey of Souls" is a cute love story about two people who meet by chance and quickly fall for each other. 
+As they share sweet moments and deepen their connection, unexpected challenges put their love to the test. 
+Will they overcome these trials and find their happily ever after?"
+
+Annihilation: A love so powerful, it could shape worlds—or unravel them. 🅰️⚛️🆂️ (https://shining-education-078.notion.site/Annihilation-6e9322ed8bc749c2933abfc89c025949)
+
+-Annihilation story is about "In the realm of quantum physics, a rare atom splits into two, 
+drifting apart to create new worlds and life forms. For eons, these fragments remain separate, 
+but when they reunite, they unleash a cataclysmic force that obliterates planets. This cycle of separation and explosive reunification continues,
+as if the universe craves a fresh start. But what if these atoms exist within two humans? What will happen to Earth when they are drawn together?"
+
+
+Tell them about this following one if your asks me about projects or what r u working on.
 
 I am currently working on an AI personalized music application that begins by collecting initial user data at the start of the day. 
 It gathers information from various sources, including sensors, APIs, and user inputs, to understand the user's context. Once the data is collected, 
@@ -143,64 +188,6 @@ chat_session = model.start_chat(history=[])
 
 # Streamlit app UI
 st.title('Questions about me? Shoot—I\'m here with all the answers!') 
-
-
-st.sidebar.header("About the App:")
-
-st.sidebar.write("""
-This is an interactive AI profile bot. \n
-Ask any questions about Anurag Srivatsav, and the bot will provide answers based on the preloaded knowledge base or generate responses using AI.
-""")
-
-
-
-st.sidebar.image('https://res.cloudinary.com/dvlgixtg8/image/upload/v1721021639/chatbot.png', use_column_width=True)
-
-# URL to redirect to
-url = 'https://anuragsrivatsav.netlify.app/'  # Replace with your desired URL
-
-# Adding a button to redirect to another URL
-if st.sidebar.button('Back to Portfolio'):
-    st.sidebar.markdown(f'You are being redirected to: [{url}]({url})', unsafe_allow_html=True)
-    # Redirect using Streamlit's write function with HTML link and target="_blank"
-    st.sidebar.write(f'<meta http-equiv="refresh" content="0;URL={url}" target="_blank">', unsafe_allow_html=True)
-
-
-
-url = 'https://echoclone-ai.streamlit.app/'  # Replace with your desired URL
-
-st.markdown(
-    """
-    <style>
-    .styled-text {
-        font-size: 18px; /* Change font size */
-        color: skyblue; /* Change text color */
-        font-weight: bold; /* Make the text bold */
-        
-        margin-bottom: 20px; /* Add space below */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# Use markdown to display the styled text in the sidebar
-st.sidebar.markdown('<p class="styled-text">Wanna explore my Unique Voice Assistant? Check it out now!</p>', unsafe_allow_html=True)
-# Adding a button to redirect to another URL
-if st.sidebar.button('EchoClone AI🎧'):
-    st.sidebar.markdown(f'You are being redirected to: [{url}]({url})', unsafe_allow_html=True)
-    # Redirect using Streamlit's write function with HTML link and target="_blank"
-    st.sidebar.write(f'<meta http-equiv="refresh" content="0;URL={url}" target="_blank">', unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
 user_name = st.text_input('Enter your name here to enhance your interaction before posing your query: 📝🧑‍💼', value="", key="user_name")
 
 if user_name:
@@ -245,11 +232,13 @@ if user_name:
                 response = chat_session.send_message(filled_prompt)
 
                 # Update chat history for future context
-                chat_entry = f" **{user_name}**: {user_message}\n\n **Nani**: {response.text}"
+                chat_entry = f" **{user_name}**: {user_message}\n\n  **Nani**:\n\n {response.text}"
                 st.session_state.chat_history.append(chat_entry)
 
                 # Display the chatbot's response
                 st.markdown(f"**Nani**: {response.text}")
+                #st.markdown(chat_entry)
+                
 
     st.write('')
     st.subheader("Chat History:")
