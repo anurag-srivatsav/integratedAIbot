@@ -7,7 +7,7 @@ import streamlit as st
 import time
 
 # Set your API key as an environment variable (Replace with your actual API key)
-os.environ['GENAI_API_KEY'] = 'AIzaSyAMhP5CjLvEkSpCvVKtXK2ceQVL2aQ6tTo'  # Make sure to replace this with your actual API key
+os.environ['GENAI_API_KEY'] = ''  # Make sure to replace this with your actual API key
 
 # Configure the SDK with the API key
 api_key = os.getenv('GENAI_API_KEY')
